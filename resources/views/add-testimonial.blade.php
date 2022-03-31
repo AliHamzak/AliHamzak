@@ -1,0 +1,23 @@
+@extends('frontlayout'); 
+@section('content')
+    <div class="container my-4">
+        <h3 class="mb-3">Add Testimonial</h3>
+        @if(Session::has('success'))
+            <p class="text-success">{{session('success')}}</p>            
+        @endif
+        <form action="{{url('customer/save-testimonial')}}" method="POST">
+            @csrf
+            <table class="table table-bordered">
+                <tr>
+                    <th>Testimonial</th>
+                    <td>
+                        <textarea name="testi_cont" class="form-control" rows="8"></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2"><input type="submit" class="btn btn-primary"></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+@endsection
